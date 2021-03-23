@@ -84,7 +84,6 @@ $(function() {
             $("#form-address").css("border-bottom","2px solid #F90A0A");
             return false;
         }
-
     }
 
     function checkPhone() {
