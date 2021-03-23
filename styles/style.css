@@ -123,6 +123,12 @@ li a:hover {
   background-color: royalblue;
 }
 
+.cart-dropdown .line-item-container {
+  overflow: auto;
+  max-height: 495px;
+  background-color: red;
+}
+
 .cart-dropdown .line-item {
   display: flex;
   width: 95%;
