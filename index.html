@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Webshop | buy what you want</title>
+  </head>
+  <body>
+    <header>
+      <div class="overlay">
+        <nav>
+          <h2>SHOP</h2>
+          <ul>
+            <li><a href="./">Home</a></li>
+          </ul>
+          <ul>
+            <li><a href="./about/">About</a></li>
+          </ul>
+          <ul>
+            <li>
+              <a href="#" class="cart"
+                ><ion-icon name="basket"></ion-icon>Cart<span id="in-cart"
+                  >0</span
+                >
+              </a>
+              <div class="cart-dropdown">
+                <div><h3>Your shopping cart</h3></div>
+                <div class="drop-cartItems">
+                  <div class="drop-head">
+                    <h4 class="cart-1">Product:</h4>
+                    <h4 class="cart-2">Antal:</h4>
+                    <h4 class="cart-3">á price:</h4>
+                    <h4 class="cart-4">Total price:</h4>
+                  </div>
+                  <div class="line-item-container"></div>
+                </div>
+                <div class="cart-footer">
+                  <button class="drop-cart-clear">Clear cart</button>
+                  <button class="go-to-cart">Go to cart</button>
+                  <h3>Total:</h3>
+                  <div class="drop-cart-total">
+                    <h3 for="cart-price" id="drop-cart-total-price">0</h3>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="home-title">
+      <h2>Products</h2>
+    </div>
+    <div class="product-container"></div>
+    <div class="footer"><h2>Shop &copy; 2021</h2></div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
