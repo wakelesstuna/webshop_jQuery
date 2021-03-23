@@ -3,7 +3,7 @@ console.log("cart.js running...");
 function renderCart(){
     let cartItems = JSON.parse(localStorage.getItem('productsInCart'));
     let cartProducts = $('.cart-products');
-    
+    console.log(cartItems);
     if(cartItems === null){
         $('#total-price').val("0");
     }

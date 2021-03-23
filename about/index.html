@@ -25,9 +25,30 @@
           </ul>
           <ul>
             <li>
-              <a href="../cart/" class="cart"
+              <a href="#" class="cart"
                 ><ion-icon name="basket"></ion-icon>Cart<span>0</span>
               </a>
+              <div class="cart-dropdown">
+                <div><h3>Your shopping cart</h3></div>
+                <div class="drop-cartItems">
+                  <div class="drop-head">
+                    <h4 class="cart-1">Product:</h4>
+                    <h4 class="cart-2">Antal:</h4>
+                    <h4 class="cart-3">á price:</h4>
+                    <h4 class="cart-4">Total price:</h4>
+                  </div>
+
+                  <div class="line-item-container"></div>
+                </div>
+                <div class="cart-footer">
+                  <button class="drop-cart-clear">Clear cart</button>
+                  <button class="go-to-cart">Go to cart</button>
+                  <h3>Total:</h3>
+                  <div class="drop-cart-total">
+                    <h3 for="cart-price" id="drop-cart-total-price">0</h3>
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
         </nav>
@@ -67,11 +88,55 @@
 
     <div class="footer"><h2>Shop &copy; 2021</h2></div>
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
     <script>
       let productNumbers = parseInt(localStorage.getItem("cartNumbers"));
       productNumbers
         ? (document.querySelector(".cart span").textContent = productNumbers)
         : (document.querySelector(".cart span").textContent = 0);
+
+      function renderDropCartItem() {
+        let cartItems = JSON.parse(localStorage.getItem("productsInCart"));
+        let dropCart = $(".line-item-container");
+        if (cartItems && dropCart) {
+          dropCart.html("");
+          $.each(cartItems, (index, e) => {
+            dropCart.append(` 
+        <div class="line-item">
+                  <p class="cart-1 drop-product">${e.productName}</p>
+                  <p class="cart-2 drop-quantity">${e.inCart}</p>
+                  <p class="cart-3 drop-a-price">${e.price}</p>
+                  <p class="cart-4 drop-total-price-">${e.price * e.inCart}</p>
+        </div>
+        `);
+          });
+          $("#drop-cart-total-price").html(
+            JSON.parse(localStorage.getItem("totalPriceOfCart"))
+          );
+        } else {
+          dropCart.html("");
+        }
+      }
+
+      $(".cart").click(() => $(".cart-dropdown").slideToggle(300));
+
+      $(".go-to-cart").click(() => (window.location.href = "../cart/"));
+
+      $(".drop-cart-clear").click(() => {
+        localStorage.clear();
+        $("#in-cart").html("0");
+        $("#drop-cart-total-price").html("0");
+        $(".cart-dropdown").hide();
+        location.reload();
+      });
+
+      $(".cart-dropdown").hide();
+
+      renderDropCartItem();
     </script>
   </body>
 </html>
