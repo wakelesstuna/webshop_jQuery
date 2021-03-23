@@ -124,7 +124,7 @@ li a:hover {
 }
 
 .cart-dropdown .line-item-container {
-  overflow: auto;
+  overflow-y: scroll;
   max-height: 495px;
 }
 
