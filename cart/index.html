@@ -25,9 +25,31 @@
           </ul>
           <ul>
             <li>
-              <a href="./" class="cart"
-                ><ion-icon name="basket"></ion-icon>Cart<span>0</span>
+              <a href="#" class="cart"
+                ><ion-icon name="basket"></ion-icon>Cart<span id="in-cart"
+                  >0</span
+                >
               </a>
+              <div class="cart-dropdown">
+                <div><h3>Your shopping cart</h3></div>
+                <div class="drop-cartItems">
+                  <div class="drop-head">
+                    <h4 class="cart-1">Product:</h4>
+                    <h4 class="cart-2">Antal:</h4>
+                    <h4 class="cart-3">á price:</h4>
+                    <h4 class="cart-4">Total price:</h4>
+                  </div>
+                  <div class="line-item-container"></div>
+                </div>
+                <div class="cart-footer">
+                  <button class="drop-cart-clear">Clear cart</button>
+                  <button class="go-to-cart">Go to cart</button>
+                  <h3>Total:</h3>
+                  <div class="drop-cart-total">
+                    <h3 for="cart-price" id="drop-cart-total-price">0</h3>
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
         </nav>

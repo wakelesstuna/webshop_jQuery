@@ -122,8 +122,44 @@ $("#clear-cart-btn").click(() => {
     location.reload();
 })
 
+function renderDropCartItem() {
+    let cartItems = JSON.parse(localStorage.getItem('productsInCart'));
+    let dropCart = $('.line-item-container');
+    if(cartItems && dropCart){
+        dropCart.html("");
+    $.each(cartItems, (index, e) => {
+        dropCart.append(` 
+        <div class="line-item">
+                  <p class="cart-1 drop-product">${e.productName}</p>
+                  <p class="cart-2 drop-quantity">${e.inCart}</p>
+                  <p class="cart-3 drop-a-price">${e.price}</p>
+                  <p class="cart-4 drop-total-price-">${e.price * e.inCart}</p>
+        </div>
+        `)
+    })
+    $('#drop-cart-total-price').html(JSON.parse(localStorage.getItem('totalPriceOfCart')))
+    }else{
+        dropCart.html("");
+    }
+}
+
+$('.cart').click(() => $('.cart-dropdown').slideToggle(300)) 
+
+$('.go-to-cart').click(() => window.location.href = "./cart/") 
+
+$('.drop-cart-clear').click(() => {
+    localStorage.clear()
+    $('#in-cart').html('0')
+    $('#drop-cart-total-price').html('0')
+    $('.cart-dropdown').hide()
+    location.reload();
+})
+
+$('.cart-dropdown').hide();
+
 window.onload = () => {
   renderCart();
+  renderDropCartItem();
   updateCartUI();
   updateTotalPriceUI();
 };
