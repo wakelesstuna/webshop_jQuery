@@ -3,7 +3,7 @@ console.log("cart.js running...");
 function renderCart(){
     let cartItems = JSON.parse(localStorage.getItem('productsInCart'));
     let cartProducts = $('.cart-products');
-    console.log(cartItems);
+    
     if(cartItems === null){
         $('#total-price').val("0");
     }
@@ -29,9 +29,9 @@ function renderCart(){
             value.addEventListener('click',(e) => {
             addProductToCart(cartItems[e.target.parentElement.parentElement.id]);
             totalSumOfCart(cartItems[e.target.parentElement.parentElement.id], "add");
-            cartNumbers(cartItems[e.target.parentElement.parentElement.id],"add");
             updateTotalPriceUI();
             renderCart();
+            renderDropCartItem();
             })
           })
 
@@ -40,9 +40,9 @@ function renderCart(){
                 if(cartItems[e.target.parentElement.parentElement.id].inCart !== 0){
                     removeProductFromCart(cartItems[e.target.parentElement.parentElement.id]);
                     totalSumOfCart(cartItems[e.target.parentElement.parentElement.id], "subtract");
-                    cartNumbers(cartItems[e.target.parentElement.parentElement.id],"subtract");
                     updateTotalPriceUI();
                     renderCart();
+                    renderDropCartItem();
             }
           })
         })
@@ -92,8 +92,6 @@ function totalSumOfCart(product, subtractAdd){
         }else if (subtractAdd === "subtract"){
             price = parseFloat(price);
             localStorage.setItem('totalPriceOfCart', price - product.price);
-        }else{
-            
         }
     }else{
         localStorage.setItem('totalPriceOfCart', product.price);
