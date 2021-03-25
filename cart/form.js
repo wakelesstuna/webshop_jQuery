@@ -28,7 +28,7 @@ $(document).ready(function() {
         });
     
         function checkFirstname() {
-            let pattern =  /^[a-zA-Z]*$/;
+            let pattern =  /^[a-zA-ZåäöÅÄÖ]*$/;
             const firstname = $("#form-first-name").val();
             if(pattern.test(firstname) && firstname !== ''){
                 $("#fname-error-message").hide();
@@ -43,7 +43,7 @@ $(document).ready(function() {
         }
     
         function checkLastname() {
-            let pattern =  /^[a-zA-Z]*$/;
+            let pattern =  /^[a-zA-ZåäöÅÄÖ]*$/;
             const lastname = $("#form-last-name").val();
             if(pattern.test(lastname) && lastname !== ''){
                 $("#lname-error-message").hide();
